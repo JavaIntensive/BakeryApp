@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 public class Product {
     private String name;
@@ -6,7 +6,6 @@ public class Product {
     private String expDate;
     private String dietRestrict;
     private int quantity;
-    //private ArrayList<Product> products ;
 
     public Product(String name, double price, String expDate, String dietRestrict, int quantity) {
         this.name = name;
