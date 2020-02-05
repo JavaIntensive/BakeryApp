@@ -12,7 +12,7 @@ public class ProductApp {
 
         ProductDB db = new ProductDB();
         db.setDbList(initiate());
-        products = getDbList(userInput, db.getDbList());
+        products = getDbList(userInput,initiate());
        // Collections.sort(products);
 
         for (Product product: products) {
@@ -63,8 +63,11 @@ public class ProductApp {
         for (Product p: arrayList) {
             // step 2. for each value above look into the dblist for each product
             for (String user : userPreference.split(" ")) { // guletin fish
+                System.out.println("user: " + user );
                 for (String res : p.getDietRestrict().split(" ")) { //fat fish
+                    System.out.println("res: " + res);
                     if (user.equalsIgnoreCase(res)) {
+                        System.out.println("we are in the user equals res.");
                         isfound = true;
                         break;
                         //  result.remove(i);
@@ -73,7 +76,12 @@ public class ProductApp {
                 if (isfound) {
                     result.add(p);
                 }
+                //reiniatite isfound as flase or will stay true the entire time
+                isfound = false;
             }
+        }
+        for (Product p : result){
+            System.out.println(p.getDietRestrict() + p.getName());
         }
         for(Product p : result){
             if (arrayList.contains(p)){
